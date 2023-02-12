@@ -25,7 +25,7 @@ app.get('/', async (req, res) => {
     res.render('home', {todos});
 });
 
-routes(app);
+app.use(routes);
 
 const PORT = process.env.PORT || 8080;
 

@@ -1,17 +1,19 @@
 const todoController = require('../controllers').todo;
+const express = require('express');
+const router = express.Router();
 
-module.exports = (app) => {
-    app.get('/api', (req, res) => {
-        res.status(200).send({
-            data: 'Todo API v1'
-        })
-    });
+router.get('/api', (req, res) => {
+    res.status(200).send({
+        data: 'Todo API v1'
+    })
+});
 
-    app.get('/api/todos', todoController.getAllTodos);
-    
-    app.post('/api/todo', todoController.createTodo);
+router.get('/api/todos', todoController.getAllTodos);
 
-    app.put('/api/todos/:id', todoController.updateTodo);
+router.post('/api/todo', todoController.createTodo);
 
-    app.delete('/api/todos/:id', todoController.deleteTodo);
-}
+router.put('/api/todos/:id', todoController.updateTodo);
+
+router.delete('/api/todos/:id', todoController.deleteTodo);
+
+module.exports = router;
