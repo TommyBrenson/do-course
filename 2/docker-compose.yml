@@ -3,6 +3,7 @@ version: "3"
 services:
   server:
     build: .
+    image: chillingspree/do-course:2
     depends_on:
       - postgres
     ports:
